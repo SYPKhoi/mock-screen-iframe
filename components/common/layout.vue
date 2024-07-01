@@ -144,10 +144,12 @@ onMounted(() => {
       }
     } else if (event.data.type === 'iframe-height') {
       heightApp.value = event.data.height
-      window.scrollTo({
-        top: 10,
-        behavior: 'smooth',
-      })
+      if (event.data.height + 20 < window.innerHeight) {
+        window.scrollTo({
+          top: 20,
+          behavior: 'smooth',
+        })
+      }
     }
   })
 })
